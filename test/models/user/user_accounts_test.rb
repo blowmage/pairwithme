@@ -3,10 +3,8 @@ require "minitest_helper"
 describe User, :accounts do
 
   before do
-    @mike = User.create name: "Mike Moore", username: "blowmage",
-                        email: "mike@blowmage.com", password: "p@ssw0rd"
-    @coby = User.create name: "Coby Randquist", username: "cobyr",
-                        email: "coby@randquist.us", password: "p@ssw0rd"
+    @mike = users(:mike)
+    @coby = users(:coby)
   end
 
   it "can add an GitHub account" do

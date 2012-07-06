@@ -2,9 +2,8 @@ require "minitest_helper"
 
 describe Session do
   before do
-    @user = User.create name: "Mike Moore", username: "blowmage",
-                        email: "mike@blowmage.com", password: "p@ssw0rd"
-    @session = @user.add_session Date.tomorrow + 6.hours, 2.hours
+    @mike = users(:mike)
+    @session = @mike.add_session Date.tomorrow + 6.hours, 2.hours
   end
 
   it "must be valid" do

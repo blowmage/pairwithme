@@ -2,9 +2,7 @@ require "minitest_helper"
 
 describe User do
   it "exists" do
-    # mike = users(:mike)
-    mike = User.new name: "Mike Moore", username: "blowmage",
-                    email: "mike@blowmage.com", password: "p@ssw0rd"
+    mike = users(:mike)
     assert mike
   end
 

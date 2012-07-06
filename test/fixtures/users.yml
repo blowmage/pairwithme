@@ -2,3 +2,10 @@ mike:
  name: Mike Moore
  email: mike@blowmage.com
  username: blowmage
+ encrypted_password: "$2a$04$dBgIG6ry263szXP9WCvc8OUgC/PB4lgA41Z/JtVRbCBUa6OK3GCTq"
+
+coby:
+ name: Coby Randquist
+ email: coby@randquist.us
+ username: cobyr
+ encrypted_password: "$2a$04$dBgIG6ry263szXP9WCvc8OUgC/PB4lgA41Z/JtVRbCBUa6OK3GCTq"

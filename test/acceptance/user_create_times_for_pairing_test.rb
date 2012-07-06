@@ -3,8 +3,7 @@ require "minitest_helper"
 describe "User Create Times For Pairing Acceptance Test" do
 
   it "user can add a new pairing time session" do
-    mike = User.create name: "Mike Moore", username: "blowmage",
-                       email: "mike@blowmage.com", password: "p@ssw0rd"
+    mike = users(:mike)
 
     pairing_start = 1.day.from_now
     duration = 1.hour
