@@ -11,9 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120706024721) do
+ActiveRecord::Schema.define(:version => 20120706040417) do
+
+  create_table "sessions", :force => true do |t|
+    t.integer  "owner_id"
+    t.integer  "requester_id"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "username"
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
