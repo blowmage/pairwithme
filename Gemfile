@@ -38,5 +38,6 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 group :test, :development do
+  gem "autotest-rails"
   gem "minitest-rails", path: "../minitest-rails"
 end
