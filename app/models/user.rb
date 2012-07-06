@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   has_many :sessions, foreign_key: :owner_id
 
+  has_many :accounts
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,5 +15,9 @@ class User < ActiveRecord::Base
 
   def add_session(datetime, duration)
     sessions.create start_at: datetime, end_at: datetime + duration
+  end
+
+  def add_account provider, uid
+    accounts.create(:provider => provider, :uid => uid)
   end
 end

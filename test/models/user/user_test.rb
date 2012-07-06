@@ -7,4 +7,7 @@ describe User do
                     email: "mike@blowmage.com", password: "p@ssw0rd"
     assert mike
   end
+
+  # it "can add a pairing time" user.add_session
+
 end
