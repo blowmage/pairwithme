@@ -26,6 +26,9 @@ PairWithMe::Application.routes.draw do
   # Profile
   get "profile" => "profile#index", as: :profile
 
+  # Sessions
+  resources :sessions
+
   # Account
   get  ":username" => "account#index", as: :account
   post ":username/sessions/:id/reserve" => "account#reserve", as: :reserve

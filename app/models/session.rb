@@ -1,5 +1,5 @@
 class Session < ActiveRecord::Base
-  attr_accessible :owner_id, :requester_id, :end_at, :start_at
+  attr_accessible :end_at, :start_at
 
   belongs_to :owner,     class_name: "User"
   belongs_to :requester, class_name: "User"
