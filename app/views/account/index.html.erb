@@ -1,9 +1,11 @@
 <h1>Account: <%= @account.username %></h1>
 
 <p>This user has <%= @account.available_sessions.count %> available pairing sessions.</p>
-<% @account.available_sessions.each do |s| %>
+<% @account.upcoming_sessions.each do |s| %>
 <div>
+  <% if s.available? %>
   <%= link_to "reserve", reserve_path(@account.username, s), method: :post %>
+  <% end %>
   Starting in <%= time_tag s.start_at, time_ago_in_words(s.start_at) %>
   for <%= distance_of_time_in_words(s.duration) %>
   (<%= time_tag s.start_at %> to <%= time_tag s.end_at %>)</div>

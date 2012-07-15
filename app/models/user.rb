@@ -33,6 +33,13 @@ class User < ActiveRecord::Base
     where("username LIKE ?", nick).first
   end
 
+  def self.upcoming(limit = 12)
+    Session.select(:start_at).select(:owner_id).includes(:owner).
+            where("start_at > CURRENT_TIMESTAMP").
+            where(requester_id: nil).order("MIN(start_at)").
+            group(:owner_id).limit(limit).map(&:owner)
+  end
+
   def add_session(datetime, duration)
     sessions.create start_at: datetime, end_at: datetime + duration
   end
@@ -45,12 +52,12 @@ class User < ActiveRecord::Base
     authentications.create(:provider => provider, :uid => uid)
   end
 
-  def upcoming_sessions
-    self.sessions.where "start_at > CURRENT_TIMESTAMP"
+  def upcoming_sessions(limit = 10)
+    self.sessions.where("start_at > CURRENT_TIMESTAMP").limit(limit)
   end
 
-  def available_sessions
-    self.sessions.where("start_at > CURRENT_TIMESTAMP").where(requester_id: nil)
+  def available_sessions(limit = 10)
+    self.sessions.where("start_at > CURRENT_TIMESTAMP").where(requester_id: nil).limit(limit)
   end
 
   # def upcoming_reservatons

@@ -7,6 +7,9 @@ class AccountController < ApplicationController
 
   def reserve
     @session = @account.find_session(params[:id])
+    redirect_to :index if @session.nil?
+
+    current_user.reserve! @session
   end
 
   protected

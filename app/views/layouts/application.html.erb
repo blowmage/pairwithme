@@ -9,13 +9,14 @@
 <body>
 
 <ul>
+  <li><%= link_to "home", root_path %>
   <% if signed_in?(:user) %>
-  <li><a href="<%= profile_path %>">profile</a>
+  <li><%= link_to "profile", profile_path %>
   <li><%= link_to "logout", destroy_user_session_path, method: :delete,
                                                        data:   { :confirm => "You sure?" } %>
   <% else %>
-  <li><a href="<%= new_user_registration_path %>">signup</a>
-  <li><a href="<%= new_user_session_path      %>">login</a>
+  <li><%= link_to "signup", new_user_registration_path %>
+  <li><%= link_to "login",  new_user_session_path %>
   <% end %>
 </ul>
 

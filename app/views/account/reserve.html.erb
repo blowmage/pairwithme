@@ -1,8 +1,7 @@
-<h1>Reserving a session with <%= @account.name %></h1>
-<p>You are attempting to reserve the following session:</p>
+<h1>You reserved a session with <%= @account.name %>!</h1>
 <div>
-  Starting in <%= time_tag @session.start_at, time_ago_in_words(@session.start_at) %>
+  Your session will start <%= time_tag @session.start_at, time_ago_in_words(@session.start_at) %>
   for <%= distance_of_time_in_words(@session.duration) %>
   (<%= time_tag @session.start_at %> to <%= time_tag @session.end_at %>)</div>
 
-<p>Find me in app/views/account/reserve.html.erb</p>
+<p><%= link_to "Back to #{@account.name}", account_path(@account.username) %></p>
