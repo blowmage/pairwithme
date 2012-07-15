@@ -23,6 +23,8 @@ PairWithMe::Application.routes.draw do
     get    'profile/cancel' => 'devise/registrations#cancel',  as: :cancel_user_registration
   end
 
+  get "profile" => "profile#index", as: :profile
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
