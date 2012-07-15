@@ -22,4 +22,8 @@ class MiniTest::Rails::ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 end
 
+class MiniTest::Rails::ActionController::TestCase
+  include Devise::TestHelpers
+end
+
 # ::ActiveSupport::TestCase = MiniTest::Rails::ActiveSupport::TestCase

@@ -1,7 +1,6 @@
 require "minitest_helper"
 
 describe ProfileController do
-  include Devise::TestHelpers
 
   it "should display when authenticated" do
     sign_in users(:mike)
