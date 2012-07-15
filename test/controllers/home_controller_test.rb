@@ -1,10 +1,17 @@
 require "minitest_helper"
 
-class HomeControllerTest < MiniTest::Rails::ActionController::TestCase
+describe HomeController do
 
-  test "should get index" do
+  it "should return successfully" do
     get :index
     assert_response :success
+  end
+
+  describe :index do
+    it "should return successfully again" do
+      get :index
+      assert_response :success
+    end
   end
 
 end
