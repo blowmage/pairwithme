@@ -1,3 +1,6 @@
+require "email_validator"
+require "reserved/usernames"
+
 class User < ActiveRecord::Base
 
   has_many :sessions,     foreign_key: :owner_id
@@ -14,9 +17,21 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :name, :username
 
-  validates :email, :username, presence:       true,
-                               uniqueness:     true
-  validates :name,             presence:       true
+  validates :email,    presence:   true,
+                       uniqueness: true,
+                       email:      true
+  validates :username, presence:   true,
+                       uniqueness: true,
+                       length:     { in: 3..32 },
+                       format:     { with: /^[a-z0-9_]+$/i,
+                                     message: "can only have letters, numbers and '_'" },
+                       exclusion:  { in: Reserved::USERNAMES,
+                                     message: "is reserved" }
+  validates :name,     presence:   true
+
+  def self.find_by_username nick
+    where("username LIKE ?", nick).first
+  end
 
   def add_session(datetime, duration)
     sessions.create start_at: datetime, end_at: datetime + duration
