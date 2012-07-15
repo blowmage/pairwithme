@@ -9,3 +9,9 @@ coby:
  email: coby@randquist.us
  username: cobyr
  encrypted_password: "$2a$04$dBgIG6ry263szXP9WCvc8OUgC/PB4lgA41Z/JtVRbCBUa6OK3GCTq"
+
+john:
+ name: John Carpenter
+ email: john@example.net
+ username: john
+ encrypted_password: "$2a$04$dBgIG6ry263szXP9WCvc8OUgC/PB4lgA41Z/JtVRbCBUa6OK3GCTq"

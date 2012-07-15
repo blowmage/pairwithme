@@ -34,11 +34,15 @@ class User < ActiveRecord::Base
   #   self.sessions.where "start_at > CURRENT_TIMESTAMP"
   # end
 
+  def can_reserve? session
+    session.available? && session.owner != self
+  end
+
   def reserve! session
-    # What if session is nil?
-    # What if its already reserved?
+    raise Pairwithme::CannotReserveSession unless can_reserve?(session)
     session.requester = self
     session.save!
-    # Send emails?
+    # TODO: The app may want to send emails
+    # Create a UseCaseController to send emails and do extra work
   end
 end
