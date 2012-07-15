@@ -1,6 +1,6 @@
 require "minitest_helper"
 
-describe User, :accounts do
+describe User, :sessions do
 
   before do
     @mike = users :mike

@@ -1,6 +1,6 @@
-class CreateAccounts < ActiveRecord::Migration
+class CreateAuthentications < ActiveRecord::Migration
   def change
-    create_table :accounts do |t|
+    create_table :authentications do |t|
       t.integer :user_id
       t.string  :provider
       t.string  :uid

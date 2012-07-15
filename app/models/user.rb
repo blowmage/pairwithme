@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :sessions,     foreign_key: :owner_id
   has_many :reservations, foreign_key: :requester_id, class_name: "Session"
 
-  has_many :accounts
+  has_many :authentications
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -41,8 +41,8 @@ class User < ActiveRecord::Base
     sessions.find(session_id)
   end
 
-  def add_account provider, uid
-    accounts.create(:provider => provider, :uid => uid)
+  def add_authentication provider, uid
+    authentications.create(:provider => provider, :uid => uid)
   end
 
   def upcoming_sessions
