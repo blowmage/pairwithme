@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :name, :username
 
+  validates :email, :username, presence:       true,
+                               uniqueness:     true
+  validates :name,             presence:       true
+
   def add_session(datetime, duration)
     sessions.create start_at: datetime, end_at: datetime + duration
   end

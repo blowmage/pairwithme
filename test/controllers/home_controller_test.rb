@@ -1,6 +1,7 @@
 require "minitest_helper"
 
 describe HomeController do
+  include Devise::TestHelpers
 
   it "should return successfully" do
     get :index
