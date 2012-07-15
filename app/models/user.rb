@@ -24,4 +24,11 @@ class User < ActiveRecord::Base
   def upcoming_sessions
     self.sessions.where "start_at > CURRENT_TIMESTAMP"
   end
+
+  def reserve session
+    # What if session is nil?
+    # What if its already reserved?
+    session.requester = self
+    # Send emails?
+  end
 end
