@@ -1,9 +1,9 @@
 PATH
   remote: ../minitest-rails
   specs:
-    minitest-rails (0.1.0.alpha2.20120706021507)
+    minitest-rails (0.1.20120714184823)
       minitest (~> 3.0)
-      rails (~> 3.1)
+      rails (~> 3.0)
 
 GEM
   remote: https://rubygems.org/

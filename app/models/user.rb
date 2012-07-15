@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
   def add_account provider, uid
     accounts.create(:provider => provider, :uid => uid)
   end
+
+  def upcoming_sessions
+    self.sessions.where "start_at > CURRENT_TIMESTAMP"
+  end
 end
