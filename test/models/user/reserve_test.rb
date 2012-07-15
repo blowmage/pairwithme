@@ -13,7 +13,7 @@ describe User, :reserve! do
   it "cannot reserve its own sessions" do
     mike = users :mike
     session = mike.add_session 2.hours.from_now, 1.hour
-    assert_raises Pairwithme::CannotReserveSession do
+    assert_raises PairWithMe::CannotReserveSession do
       mike.reserve! session
     end
   end

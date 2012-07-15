@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   end
 
   def reserve! session
-    raise Pairwithme::CannotReserveSession unless can_reserve?(session)
+    raise PairWithMe::CannotReserveSession unless can_reserve?(session)
     session.requester = self
     session.save!
     # TODO: The app may want to send emails

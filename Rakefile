@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Pairwithme::Application.load_tasks
+PairWithMe::Application.load_tasks
