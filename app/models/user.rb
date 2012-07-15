@@ -37,6 +37,10 @@ class User < ActiveRecord::Base
     sessions.create start_at: datetime, end_at: datetime + duration
   end
 
+  def find_session(session_id)
+    sessions.find(session_id)
+  end
+
   def add_account provider, uid
     accounts.create(:provider => provider, :uid => uid)
   end

@@ -27,6 +27,11 @@ describe User, :accounts do
     end
   end
 
+  it "can find a session" do
+    session = @mike.add_session 2.days.from_now, 90.minutes
+    assert_equal session, @mike.find_session(session.id)
+  end
+
   describe :available_sessions do
 
     it "has available session times" do
