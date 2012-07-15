@@ -2,7 +2,7 @@ require "minitest_helper"
 
 describe Account do
   before do
-    @mike = users(:mike)
+    @mike = users :mike
     @valid_params = { provider: "github", uid: 123 }
   end
 

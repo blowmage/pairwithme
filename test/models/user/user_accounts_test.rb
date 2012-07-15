@@ -3,8 +3,8 @@ require "minitest_helper"
 describe User, :accounts do
 
   before do
-    @mike = users(:mike)
-    @coby = users(:coby)
+    @mike = users :mike
+    @coby = users :coby
   end
 
   it "can add an GitHub account" do
