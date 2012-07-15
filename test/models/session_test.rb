@@ -25,7 +25,7 @@ describe Session do
   end
 
   it "is not available when reserved" do
-    @coby.reserve(@session)
+    @coby.reserve!(@session)
     refute @session.available?
     assert @session.reserved?
   end

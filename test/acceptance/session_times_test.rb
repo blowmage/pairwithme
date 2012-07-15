@@ -46,13 +46,16 @@ describe "Session Times Acceptance Test" do
       @third  = @mike.add_session 4.hours.from_now, 1.hour
     end
 
-    it "can reserve sessions" do
-      assert_equal 3, @mike.upcoming_sessions.count
-      assert @second.available?
-      @coby.reserve @second
-      assert @second.reserved?
+    it "lists available sessions" do
+      assert_equal 3, @mike.available_sessions.count
     end
 
-    # Available? Unavialable?
+    it "can reserve sessions" do
+      assert_difference "@mike.available_sessions.count", -1 do
+        @coby.reserve! @mike.available_sessions.sample
+      end
+    end
+
+    # Available? Unavailable?
   end
 end

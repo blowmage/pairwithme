@@ -27,4 +27,34 @@ describe User, :accounts do
     end
   end
 
+  describe :available_sessions do
+
+    it "has available session times" do
+      assert_difference "@mike.available_sessions.count", 3 do
+        # Add three in the future, one is reserved
+        @mike.add_session 2.days.from_now, 90.minutes
+        @mike.add_session 3.days.from_now, 2.hours
+        @mike.add_session 4.days.from_now, 30.minutes
+        # Add two in the past, don't show up
+        @mike.add_session 2.days.ago, 90.minutes
+        @mike.add_session 3.days.ago, 1.hour
+      end
+    end
+
+    it "has available session times" do
+      @mike.add_session 2.days.from_now, 90.minutes
+      @mike.add_session 3.days.from_now, 2.hours
+      @mike.add_session 4.days.from_now, 30.minutes
+
+      session = @mike.upcoming_sessions.sample
+      assert session.available?
+      assert_difference "@mike.available_sessions.count", -1 do
+        @coby.reserve! session
+      end
+      assert session.reserved?
+      refute @mike.available_sessions.include?(@second)
+    end
+
+  end
+
 end

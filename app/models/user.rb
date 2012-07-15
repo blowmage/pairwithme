@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
-  has_many :sessions, foreign_key: :owner_id
+  has_many :sessions,     foreign_key: :owner_id
+  has_many :reservations, foreign_key: :requester_id, class_name: "Session"
 
   has_many :accounts
 
@@ -25,10 +26,19 @@ class User < ActiveRecord::Base
     self.sessions.where "start_at > CURRENT_TIMESTAMP"
   end
 
-  def reserve session
+  def available_sessions
+    self.sessions.where("start_at > CURRENT_TIMESTAMP").where(requester_id: nil)
+  end
+
+  # def upcoming_reservatons
+  #   self.sessions.where "start_at > CURRENT_TIMESTAMP"
+  # end
+
+  def reserve! session
     # What if session is nil?
     # What if its already reserved?
     session.requester = self
+    session.save!
     # Send emails?
   end
 end
