@@ -34,10 +34,11 @@ class User < ActiveRecord::Base
   end
 
   def self.upcoming(limit = 12)
-    Session.select(:start_at).select(:owner_id).includes(:owner).
-            where("start_at > CURRENT_TIMESTAMP").
-            where(requester_id: nil).order("MIN(start_at)").
-            group(:start_at).group(:owner_id).limit(limit).map(&:owner)
+    User.select("users.id, users.name, users.username, users.email").
+         joins(:sessions).where(sessions: {requester_id: nil}).
+         where("sessions.start_at > CURRENT_TIMESTAMP").
+         group("users.id, users.name, users.username, users.email").
+         order("MIN(sessions.start_at)").limit(3)
   end
 
   def add_session(datetime, duration)
