@@ -40,5 +40,5 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem "autotest-rails"
-  gem "minitest-rails", path: "../minitest-rails"
+  gem "minitest-rails" #, path: "../minitest-rails"
 end
