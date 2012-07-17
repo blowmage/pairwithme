@@ -1,29 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PairWithMe</title>
+  <title>Pair With Me!</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="copyright" content="HumaneCode LLC" />
+  <link href="reset.css" rel="stylesheet" type="text/css" media="all"  />
+  <link href="pairwithme.css" rel="stylesheet" type="text/css" media="all"  />
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+  <header>
+    <h1><a href="/">Pair With Me</a></h1>
+    <h2>Pair Programming Made Easy!</h2>
+  </header>
 
-<ul>
-  <li><%= link_to "home", root_path %>
-  <% if signed_in?(:user) %>
-  <li><%= link_to "profile", profile_path %>
-  <li><%= link_to "logout", destroy_user_session_path, method: :delete,
-                                                       data:   { :confirm => "You sure?" } %>
-  <% else %>
-  <li><%= link_to "signup", new_user_registration_path %>
-  <li><%= link_to "login",  new_user_session_path %>
-  <% end %>
-</ul>
+  <nav>
+    <ul>
+      <li><%= link_to "home", root_path %></li>
+      <% if signed_in?(:user) -%>
+      <li><%= link_to "profile", profile_path %></li>
+      <li><%= link_to "sessions", sessions_path %></li>
+      <li><%= link_to "logout", destroy_user_session_path, method: :delete,
+                                                           data:   { :confirm => "You sure?" } %></li>
+      <% else -%>
+      <li><%= link_to "signup", new_user_registration_path %></li>
+      <li><%= link_to "login",  new_user_session_path %></li>
+      <% end -%>
+    </ul>
+  </nav>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <!-- <section id="alert">
+    <a class="notification" href="SOMEWHERE">New Requests!</a>
+  </section> -->
 
-<%= yield %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
+  <%= yield %>
+
+  <footer>
+    <p>&copy; 2012 <a href="http://humanecode.com/">HumaneCode</a></p>
+
+    <!--
+    <nav>
+      <ul>
+          <li><a href="/search">Search</a></li>
+          <li><a href="/pages/about">About</a></li>
+      </ul>
+    </nav>
+    -->
+  </footer>
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7034184-3']);
+    _gaq.push(['_setDomainName', 'pairwith.me']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
 </body>
+
 </html>

@@ -1,3 +1,4 @@
+<section class="hacker">
 <h1>You reserved a session with <%= @account.name %>!</h1>
 <div>
   Your session will start <%= time_tag @session.start_at, time_ago_in_words(@session.start_at) %>
@@ -5,3 +6,4 @@
   (<%= time_tag @session.start_at %> to <%= time_tag @session.end_at %>)</div>
 
 <p><%= link_to "Back to #{@account.name}", account_path(@account.username) %></p>
+</section>

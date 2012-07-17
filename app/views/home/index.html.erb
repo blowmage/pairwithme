@@ -1,17 +1,23 @@
-<h1>Pair With Me</h1>
-<p>Here are folks with available pairing slots coming soon. Reserve today!</p>
+<section class="hackers">
 
-<% @upcoming.each do |user| %>
-<div>
-  <p><%= link_to user.name, account_path(user.username) %></p>
-  <p>Upcoming sessions</p>
-  <ul>
-    <% user.available_sessions(3).each do |s| %>
-    <li><%= link_to "reserve", reserve_path(user.username, s), method: :post %>
-  Starting in <%= time_tag s.start_at, time_ago_in_words(s.start_at) %>
-  for <%= distance_of_time_in_words(s.duration) %>
-  (<%= time_tag s.start_at %> to <%= time_tag s.end_at %>)</li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+  <h1>Find a friend!</h1>
+  <p>Here are the hackers that have times available for pairing.</p>
+
+  <% @upcoming.each do |user| %>
+  <div class="hacker">
+    <p><%= link_to user.name, account_path(user.username) %></p>
+    <p><%= link_to image_tag(avatar_url(user), height: 280, width: 280, alt: user.username),
+                   account_path(user.username) %></p>
+    <p>Upcoming sessions</p>
+    <ul>
+      <% user.available_sessions(3).each do |s| %>
+      <li><%= link_to "reserve", reserve_path(user.username, s), method: :post %>
+        Starting in <%= time_tag s.start_at, time_ago_in_words(s.start_at) %>
+        for <%= distance_of_time_in_words(s.duration) %>
+        (<%= time_tag s.start_at %> to <%= time_tag s.end_at %>)</li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+</section>

@@ -1,0 +1,171 @@
+body {
+  font: 16px/24px "Helvetica Neue", Helvetica, Geneva, Arial, sans-serif;
+}
+
+h1 {
+  margin: 0.5em 0;
+  font: normal 32px Helvetica, "Helvetica Neue", Geneva, Arial, sans-serif;
+}
+
+h2 {
+  margin: 0.5em 0;
+  font: normal 24px Helvetica, "Helvetica Neue", Geneva, Arial, sans-serif;
+}
+
+h1 a, h2 a {
+  font-weight: normal;
+  font-style: normal;
+}
+
+p {
+  margin: 1em 0;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #bf1e2d;
+}
+
+header {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  height: 90px;
+}
+
+body > nav {
+  padding: 0;
+  margin: 12px auto;
+  width: 960px;
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  -ms-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+body > nav ul {
+  list-style: none;
+  margin: 0 16px;
+  overflow: auto;
+}
+
+body > nav li {
+  float: left;
+  padding: 8px;
+}
+
+body > nav li:hover {
+  background-color: #555;
+}
+
+body > nav a {
+  color: white;
+}
+
+section {
+  width: 960px;
+  margin: 12px auto;
+}
+
+section#alert {
+  background-color: #bf1e2d;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: auto;
+  width: auto;
+  padding: 8px 32px;
+  margin-top: 0;
+  margin-left: 170px;
+  -ms-border-radius: 0 0 10px 10px;
+  -moz-border-radius: 0 0 10px 10px;
+  -o-border-radius: 0 0 10px 10px;
+  -webkitborder-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+  -ms-box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+  -o-box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+}
+
+section#alert a {
+  color: white;
+}
+
+section.hackers {
+  overflow: auto;
+}
+
+section.hackers div.hacker {
+  background-color: white;
+  text-align: center;
+  width: 280px;
+  padding: 10px;
+  float: left;
+  -ms-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  -ms-box-shadow: rgba(0, 0, 0, 0.2) 0 0 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 0 5px;
+  -o-box-shadow: rgba(0, 0, 0, 0.2) 0 0 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 0 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0 5px;
+}
+
+section.hackers div.hacker:hover {
+  -ms-box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+  -o-box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+}
+
+section.hackers div.hacker a {
+  color: #555;
+}
+
+section.hackers div.hacker:hover a {
+  color: #000;
+}
+
+section.hackers div.hacker img {
+  display: block;
+  width: 280px;
+  height: 280px;
+  margin-bottom: 10px;
+}
+
+section#hacker {
+  overflow: auto;
+}
+
+section#hacker div#details {
+  width: 460px;
+  float: left;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  clear: both;
+  text-align: center;
+  margin-top: 24px;
+  padding: 24px 0;
+  font-weight: normal;
+  font-style: normal;
+}
+
+footer a {
+  color: white;
+  font-weight: normal;
+  font-style: normal;
+}
