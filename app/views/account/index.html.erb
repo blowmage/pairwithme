@@ -1,14 +1,20 @@
 <section class="hacker">
-<h1>Account: <%= @account.username %></h1>
+<p style="float: right">
+  <%= link_to image_tag(avatar_url(@account), height: 280, width: 280, alt: @account.username),
+              account_path(@account.username) %></p>
 
-<p>This user has <%= @account.available_sessions.count %> available pairing sessions.</p>
+<h1>Pair with <%= @account.username %>!</h1>
+
+<p><%= @account.name %> has <%= @account.available_sessions.count %> available pairing sessions.</p>
 <% @account.upcoming_sessions.each do |s| %>
+
+<% if s.available? %>
 <div>
-  <% if s.available? %>
   <%= link_to "reserve", reserve_path(@account.username, s), method: :post %>
   <% end %>
   Starting in <%= time_tag s.start_at, time_ago_in_words(s.start_at) %>
   for <%= distance_of_time_in_words(s.duration) %>
-  (<%= time_tag s.start_at %> to <%= time_tag s.end_at %>)</div>
+  (<%= time_tag s.start_at %> to <%= time_tag s.end_at %>)
+</div>
 <% end %>
 </section>
