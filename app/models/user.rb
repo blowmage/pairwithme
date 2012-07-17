@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
     Session.select(:start_at).select(:owner_id).includes(:owner).
             where("start_at > CURRENT_TIMESTAMP").
             where(requester_id: nil).order("MIN(start_at)").
-            group(:owner_id).limit(limit).map(&:owner)
+            group(:start_at).group(:owner_id).limit(limit).map(&:owner)
   end
 
   def add_session(datetime, duration)
