@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   validates :name,     presence:   true
 
   def self.find_by_username nick
-    where("username LIKE ?", nick).first
+    where("username ILIKE ?", nick).first
   end
 
   def self.upcoming(limit = 12)
