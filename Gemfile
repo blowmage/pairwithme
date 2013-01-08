@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '1.9.3'
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -41,4 +41,5 @@ gem 'capistrano'
 group :test, :development do
   gem "autotest-rails"
   gem "minitest-rails" #, path: "../minitest-rails"
+  gem "minitest-rg"
 end
