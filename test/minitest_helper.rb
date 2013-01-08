@@ -5,7 +5,7 @@ require "minitest/autorun"
 require "minitest/rails"
 
 # Uncomment if you want awesome colorful output
-require "minitest/pride"
+require "minitest/rg"
 
 # Do you want all existing Rails tests to use MiniTest::Rails?
 # Comment out the following and either:
