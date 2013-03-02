@@ -1,6 +1,6 @@
 require "minitest_helper"
 
-describe "Session Times Acceptance Test" do
+describe "Session Times Integration Test" do
   describe "User Create Times For Pairing" do
     it "user can add a new pairing time session" do
       mike = users :mike
